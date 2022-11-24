@@ -35,5 +35,5 @@
 {#if thisActive && component}
 	<svelte:component this="{component}" options={thisOptions} {...$$restProps} />
 {:else if thisActive}
-	<slot />
+	<slot options={thisOptions} />
 {/if}
