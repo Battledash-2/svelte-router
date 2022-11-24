@@ -1,1 +1,4 @@
-**/test
+# Test
+*/test
+./src/App.svelte
+./src/main.js

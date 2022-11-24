@@ -1,7 +1,7 @@
 <script>
 	import { setContext } from "svelte";
 	import { writable } from "svelte/store";
-	import { ROUTER } from "./context/contexts";
+	import { ROUTER } from "./helpers/contexts";
 
 	export let home = '/';
 

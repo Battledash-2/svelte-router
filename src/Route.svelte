@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from "svelte";
-	import { ROUTER } from "./context/contexts";
+	import { ROUTER } from "./helpers/contexts";
 	import { getRegexp, parseRoute, routeMatch } from "./helpers/parseRoute";
 
 	export let path = '';
