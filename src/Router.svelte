@@ -1,0 +1,29 @@
+<script>
+	import { setContext } from "svelte";
+	import { writable } from "svelte/store";
+	import { ROUTER } from "./context/contexts";
+
+	export let home = '/';
+
+	const routes = [];
+	const matched = writable(false);
+
+	function registerRoute(route, element) {
+		// @ts-ignore
+		routes.push({
+			route,
+			element
+		});
+	}
+	function removeRoute(route) {
+		routes.map(r => r.route !== route);
+	}
+
+	setContext(ROUTER, {
+		registerRoute,
+		removeRoute,
+		matched,
+	});
+</script>
+
+<slot />
