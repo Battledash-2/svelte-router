@@ -1,6 +1,6 @@
 <script>
 	import Link from "./Link.svelte";
-import Route from "./Route.svelte";
+	import Route from "./Route.svelte";
 	import Router from "./Router.svelte";
 	import MyComponent from "./test/MyComponent.svelte";
 </script>
