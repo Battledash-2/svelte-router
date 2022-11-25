@@ -10,6 +10,11 @@
 
 In your main svelte file (usually `App.svelte`), place a `Router` object. Within the `Router` object, you can place `Route` objects. It works pretty similarly to `react-router`.
 
+## 📩 Installation
+
+To install `svroutes`, run `npm install svroutes`.
+Simple as that. Now you can begin using `svroutes`!
+
 # 🌎 `Router` object usage:
 
 ### `home` (default `'/'`)
