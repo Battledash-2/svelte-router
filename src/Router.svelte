@@ -2,7 +2,6 @@
 	import { setContext } from "svelte";
 	import { writable } from "svelte/store";
 	import { ROUTER } from "./helpers/contexts";
-	import { goBack } from "./helpers/navigation";
 
 	export let home = '/';
 
