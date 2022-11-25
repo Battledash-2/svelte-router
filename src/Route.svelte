@@ -13,6 +13,7 @@
 	export let component = null;
 	export let exact = false;
 	export let text = false;
+	export let index = false;
 
 	const { registerRoute, home } = getContext(ROUTER);
 	path = pathJoin([home, path]);
@@ -23,7 +24,10 @@
 	let thisOptions = {};
 
 	$: {
-		if ($matched == false && !text) {
+		if ($matched == false && index === true) {
+			thisActive = true;
+			matched.set(true);
+		} else if ($matched == false && !text) {
 			const active = getRegexp(path, exact);
 
 			if (routeMatch(location.pathname, active.regex)) {

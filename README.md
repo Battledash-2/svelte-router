@@ -58,6 +58,11 @@ Decides whether there should be a '^' prepended and '$' appended to the RegExp. 
 Controls whether the `path` property should be a string or RegExp.
 In text mode, you cannot use custom options (`:customOption`).
 
+#### `index` (default `false`)
+
+If enabled, `path` is ignored and this route will always show if others fail.
+Must be placed **below** all other routes to prevent errors.
+
 ### 🌏 `Link` object usage:
 
 #### `href` or `to` (default `'/'`)
@@ -67,5 +72,14 @@ Path to go to. Using `Link` will automatically update the page without need for 
 #### `state` (default `'history.state'`)
 
 State to be passed when switching pages. You can access this via `history.state`.
+
+### ⛳ Navigation
+
+To navigate between pages, you can use the `navigate` function.
+
+```ts
+import { navigate } from 'svroutes';
+navigate(url: string, state?: any);
+```
 
 ## Enjoy using `svroutes`! Report any bugs [here](https://github.com/Battledash-2/svelte-router#readme).
