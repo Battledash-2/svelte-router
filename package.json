@@ -1,6 +1,6 @@
 {
 	"name": "svroutes",
-	"version": "0.1.2",
+	"version": "0.1.2-rd",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
