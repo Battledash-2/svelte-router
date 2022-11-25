@@ -7,7 +7,7 @@
 
 <h1>Hi</h1>
 
-<Router home="/poo">
+<Router>
 	<Route path="/hello" exact>
 		<h1>Hello!</h1>
 	</Route>
