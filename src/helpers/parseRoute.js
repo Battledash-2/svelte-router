@@ -39,3 +39,8 @@ export function routeMatchText(route, path) {
 	route = route.endsWith('/') ? route.slice(0, -1) : route;
 	return route === path || route === path.slice(1) || route.slice(1) === path;
 }
+
+// Returns boolean
+export function sameHost(path) {
+	return new URL(path, location.origin).hostname === location.hostname;
+}
