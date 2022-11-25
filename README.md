@@ -23,7 +23,7 @@ Controls the base URL. All `Route` object paths will be `{home}/{route_path}`.
 
 # 🌍 `Route` object usage:
 
-## `path` (default `'/'`)
+## `path` or `to` (default `'/'`)
 
 Controls the path for this route. Value will be converted to a RegExp unless the `text` property is present.
 

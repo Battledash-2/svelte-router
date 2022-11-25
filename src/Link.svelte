@@ -5,7 +5,10 @@
 	import { sameHost } from "./helpers/parseRoute";
 
 	export let href = '/';
+	export let to = null;
 	export let state = null;
+
+	if (to !== null) href = to;
 
 	const context = getContext(ROUTER);
 
