@@ -1,7 +1,7 @@
 # Test
 */test
-./src/App.svelte
-./src/main.js
+*/App.svelte
+*/main.js
 
 # Random stuff
 node_modules
