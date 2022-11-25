@@ -1,17 +1,21 @@
 <script>
-	import { getContext } from "svelte";
-	import { ROUTER } from "./helpers/contexts";
-	import { pathJoin } from "./helpers/navigation";
-	import { getRegexp, parseRoute, routeMatch, routeMatchText } from "./helpers/parseRoute";
+	import { getContext } from 'svelte';
+	import { matched, ROUTER } from './helpers/contexts';
+	import { pathJoin } from './helpers/navigation';
+	import {
+		getRegexp,
+		parseRoute,
+		routeMatch,
+		routeMatchText,
+	} from './helpers/parseRoute';
 
 	export let path = '';
 	export let component = null;
 	export let exact = false;
 	export let text = false;
 
-	
-	const { registerRoute, matched, home } = getContext(ROUTER);
-	path = pathJoin([ home, path ]);
+	const { registerRoute, home } = getContext(ROUTER);
+	path = pathJoin([home, path]);
 
 	registerRoute(path.toString(), component);
 
@@ -46,7 +50,7 @@
 </script>
 
 {#if thisActive && component}
-	<svelte:component this="{component}" options={thisOptions} {...$$restProps} />
+	<svelte:component this={component} options={thisOptions} {...$$restProps} />
 {:else if thisActive}
 	<slot options={thisOptions} />
 {/if}

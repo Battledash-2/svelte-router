@@ -1,11 +1,9 @@
-export function navigate(path = '/', context = null, state = history.state) {
-	path = path || '/';
-	context = context || null;
-	state = state || history.state;
+import { matched } from './contexts';
 
+export function navigate(path = '/', state = history.state) {
 	// @ts-ignore
 	history.pushState(state, false, path);
-	if (context) context.matched.set(false);
+	matched.set(false);
 }
 
 export function pathJoin(paths, sep = '/') {
