@@ -1,6 +1,6 @@
 {
 	"name": "svroutes",
-	"version": "0.1.3t1",
+	"version": "0.1.3t2",
 	"type": "module",
 	"main": "./src/index.js",
 	"types": "./types/index.d.ts",
