@@ -33,3 +33,9 @@ export function parseRoute(route = '', regexp = getRegexp('')) {
 export function routeMatch(route = '', regex = new RegExp('')) {
 	return regex.test(route);
 }
+
+// Returns boolean
+export function routeMatchText(route, path) {
+	route = route.endsWith('/') ? route.slice(0, -1) : route;
+	return route === path || route === path.slice(1) || route.slice(1) === path;
+}

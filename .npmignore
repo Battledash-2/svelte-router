@@ -2,3 +2,7 @@
 */test
 ./src/App.svelte
 ./src/main.js
+
+# Random stuff
+node_modules
+public

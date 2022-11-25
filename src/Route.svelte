@@ -1,22 +1,25 @@
 <script>
 	import { getContext } from "svelte";
 	import { ROUTER } from "./helpers/contexts";
-	import { getRegexp, parseRoute, routeMatch } from "./helpers/parseRoute";
+	import { pathJoin } from "./helpers/navigation";
+	import { getRegexp, parseRoute, routeMatch, routeMatchText } from "./helpers/parseRoute";
 
 	export let path = '';
 	export let component = null;
 	export let exact = false;
+	export let text = false;
+
 	
-	const { registerRoute, matched } = getContext(ROUTER);
+	const { registerRoute, matched, home } = getContext(ROUTER);
+	path = pathJoin([ home, path ]);
+
 	registerRoute(path.toString(), component);
 
-	console.log('Path "'+path.toString()+'" registered!');
-	
 	let thisActive = false;
 	let thisOptions = {};
 
 	$: {
-		if ($matched == false) {
+		if ($matched == false && !text) {
 			const active = getRegexp(path, exact);
 
 			if (routeMatch(location.pathname, active.regex)) {
@@ -28,6 +31,16 @@
 				thisActive = false;
 				matched.set(false);
 			}
+		} else if ($matched == false && text) {
+			if (routeMatchText(location.pathname, path)) {
+				thisActive = true;
+				matched.set(true);
+			} else {
+				thisActive = false;
+				matched.set(false);
+			}
+		} else {
+			thisActive = false;
 		}
 	}
 </script>
