@@ -23,7 +23,7 @@ Controls the base URL. All `Route` object paths will be `{home}/{route_path}`.
 
 ### 🌍 `Route` object usage:
 
-#### `path` or `to` (default `'/'`)
+#### `path` (default `'/'`)
 
 Controls the path for this route. Value will be converted to a RegExp unless the `text` property is present.
 
@@ -60,7 +60,7 @@ In text mode, you cannot use custom options (`:customOption`).
 
 ### 🌏 `Link` object usage:
 
-#### `href` (default `'/'`)
+#### `href` or `to` (default `'/'`)
 
 Path to go to. Using `Link` will automatically update the page without need for reload. Using an anchor tag (`a`) will work, but is less optimized.
 
