@@ -7,7 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Test
+*/test
+*/App.svelte
+*/main.js
+
+# Random stuff
+node_modules
+package-lock.json
 public
+index.html
+vite.config.js
+jsconfig.json
 
 # Node
 node_modules

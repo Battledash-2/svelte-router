@@ -7,3 +7,6 @@
 node_modules
 package-lock.json
 public
+index.html
+vite.config.js
+jsconfig.json
