@@ -1,8 +1,9 @@
 {
 	"name": "svroutes",
-	"version": "0.1.3j",
+	"version": "0.1.3t",
 	"type": "module",
 	"main": "./src/index.js",
+	"types": "./types/index.d.ts",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
