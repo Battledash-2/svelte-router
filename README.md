@@ -8,7 +8,7 @@
 
 `svroutes` is fairly easy to use.
 
-In your main svelte finally (typically `App.svelte`), place a `Router` object. Within the `Router` object, you can place `Route` objects. It works pretty similarly to `react-router`.
+In your main svelte file (usually `App.svelte`), place a `Router` object. Within the `Router` object, you can place `Route` objects. It works pretty similarly to `react-router`.
 
 # 🌎 `Router` object usage:
 
