@@ -8,6 +8,4 @@ interface RouteProps {
 	text: string;
 }
 
-export class Route extends SvelteComponentTyped<
-	RouteProps & svelte.JSX.HTMLProps<HTMLElement>
-> {}
+export class Route extends SvelteComponentTyped<RouteProps> {}
