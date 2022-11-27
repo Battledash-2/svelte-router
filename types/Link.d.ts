@@ -5,6 +5,7 @@ interface LinkParams {
 	href?: string;
 	to?: string;
 	state?: object;
+	replace?: boolean;
 }
 
 export class Link extends SvelteComponentTyped<

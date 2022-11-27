@@ -1,8 +1,10 @@
 import { matched } from './contexts';
 
-export function navigate(path = '/', state = history.state) {
+export function navigate(path = '/', state = history.state, replace = false) {
 	// @ts-ignore
-	history.pushState(state, false, path);
+	if (replace) history.replaceState(state, false, path);
+	// @ts-ignore
+	else history.pushState(state, false, path);
 	matched.set(false);
 }
 

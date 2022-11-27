@@ -11,6 +11,7 @@ lerna-debug.log*
 */test
 */App.svelte
 */main.js
+oldreadme.md
 
 # Random stuff
 node_modules

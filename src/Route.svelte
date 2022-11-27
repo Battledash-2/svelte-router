@@ -21,7 +21,8 @@
 	registerRoute(path.toString(), component);
 
 	let thisActive = false;
-	let thisOptions = {};
+	let thisParams = {};
+	let thisWildcards = [];
 
 	$: {
 		if ($matched == false && index === true) {
@@ -33,7 +34,11 @@
 			if (routeMatch(location.pathname, active.regex)) {
 				// current route is active
 				thisActive = true;
-				thisOptions = parseRoute(location.pathname, active);
+
+				const r = parseRoute(location.pathname, active);
+				thisParams = r.params;
+				thisWildcards = r.wildcards;
+
 				matched.set(true);
 			} else {
 				thisActive = false;
@@ -54,7 +59,12 @@
 </script>
 
 {#if thisActive && component}
-	<svelte:component this={component} options={thisOptions} {...$$restProps} />
+	<svelte:component
+		this={component}
+		params={thisParams}
+		wildcards={thisWildcards}
+		{...$$restProps}
+	/>
 {:else if thisActive}
-	<slot options={thisOptions} />
+	<slot params={thisParams} wildcards={thisWildcards} />
 {/if}

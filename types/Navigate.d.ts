@@ -1,10 +1,11 @@
 import 'svelte2tsx/svelte-jsx';
 import { SvelteComponentTyped } from 'svelte';
 
-interface GotoParams {
+interface NavigateParams {
 	href?: string;
 	to?: string;
 	state?: object;
+	replace?: boolean;
 }
 
-export class Goto extends SvelteComponentTyped<GotoParams> {}
+export class Navigate extends SvelteComponentTyped<NavigateParams> {}

@@ -1,1 +1,1 @@
-export function navigate(path?: string, state?: any): void;
+export function navigate(path?: string, state?: any, replace?: false): void;

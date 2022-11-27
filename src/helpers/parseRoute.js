@@ -1,11 +1,19 @@
-// Returns { regex, ids }
-export function getRegexp(route = '', exact = false) {
-	const ids = [];
-	const _route = route.replace(/:([^/]+)?/g, (v) => {
-		const id = v.slice(1);
-		ids.push(id);
+const _wildcard = Symbol('wildcard');
 
-		return '([^/]+)?';
+// Returns { regex, ids }
+export function getRegexp(route = '', exact = false, wildcard = true) {
+	const ids = [];
+
+	const _route = route.toString().replace(/(:([^/]+)?|\.\*)/g, (v) => {
+		if (v === '.*' && wildcard) {
+			ids.push(_wildcard);
+			return '(.*)';
+		} else {
+			const id = v.slice(1);
+			ids.push(id);
+
+			return '([^/]+)?';
+		}
 	});
 
 	const regex = new RegExp(exact ? '^' + _route + '/?$' : _route);
@@ -19,14 +27,23 @@ export function getRegexp(route = '', exact = false) {
 // Returns { path, values }
 export function parseRoute(route = '', regexp = getRegexp('')) {
 	let i = 0;
-	const out = {};
+	const params = {};
+	const wildcards = [];
+
 	regexp.regex
 		.exec(route)
 		.slice(1)
 		.map((m) => {
-			out[regexp.ids[i++]] = m;
+			let c = regexp.ids[i++];
+			if (c === _wildcard) wildcards.push(m);
+			// if you have a wildcard it'll match everything so this is redundant but eh
+			else params[c] = m;
 		});
-	return out;
+
+	return {
+		params,
+		wildcards,
+	};
 }
 
 // Returns boolean

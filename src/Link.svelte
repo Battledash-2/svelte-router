@@ -5,6 +5,7 @@
 	export let href = '/';
 	export let to = null;
 	export let state = null;
+	export let replace = false;
 
 	if (to !== null) href = to;
 
@@ -13,7 +14,7 @@
 			location.href = href;
 			return;
 		}
-		navigate(href, state ? state : history.state);
+		navigate(href, state ? state : history.state, replace);
 	}
 </script>
 
