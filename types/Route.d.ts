@@ -5,7 +5,8 @@ interface RouteProps {
 	path?: string;
 	component?: SvelteComponentTyped;
 	exact?: boolean;
-	text?: string;
+	text?: boolean;
+	inndex?: boolean;
 }
 
 export class Route extends SvelteComponentTyped<RouteProps> {}
