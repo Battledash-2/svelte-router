@@ -79,12 +79,16 @@ Path to go to. Using `Link` will automatically update the page without need for 
 #### `state` (default `'history.state'`)
 
 State to be passed when switching pages. You can access this via `history.state`.
+
+#### `replace` (default `false`)
+
+Decides whether using the link replace or pushes the state. Push means it _adds_ to the history, while _replace_ replaces the current one. Using replace isn't recommended for most cases because it can ruin the UX.
 <br/>
 <br/>
 
 ### 🚅 `Navigate` object usage:
 
-The navigate object redirects the user to another page using XML, rather than script.
+The navigate object redirects the user to another page using components, rather than script.
 <br/>This object uses the same options as the `Link` object.
 
 <br/>
