@@ -11,7 +11,8 @@
 	export let index = false;
 
 	const { registerRoute, home } = getContext(ROUTER);
-	// path = pathJoin([home, path]);
+	path = pathJoin([home, path]);
+	console.log(path);
 
 	registerRoute(path.toString(), component);
 
@@ -19,17 +20,18 @@
 	let thisParams = {};
 	let thisWildcards = [];
 
-	let lhome = home || '';
-	lhome = !lhome.startsWith('/') ? '/' + lhome : lhome;
-	lhome = !lhome.endsWith('/') ? lhome + '/' : lhome;
+	// let lhome = home || '';
+	// lhome = !lhome.startsWith('/') ? '/' + lhome : lhome;
+	// lhome = !lhome.endsWith('/') ? lhome + '/' : lhome;
 
 	$: {
 		if ($matched == false && index === true) {
 			thisActive = true;
 			matched.set(true);
 		} else if ($matched == false && !text) {
-			console.log(lhome + (path.startsWith('/') ? path.slice(1) : path));
-			const active = getRegexp(lhome + (path.startsWith('/') ? path.slice(1) : path), exact);
+			// console.log(lhome + (path.startsWith('/') ? path.slice(1) : path));
+			// const active = getRegexp(lhome + (path.startsWith('/') ? path.slice(1) : path), exact);
+			const active = getRegexp(path, exact);
 
 			if (routeMatch(location.pathname, active.regex)) {
 				// current route is active
